@@ -59,11 +59,11 @@ public class RemoteService extends Service {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
             PendingIntent contentIntent = PendingIntent.getService(this, 0, intent, 0);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, RemoteService.class.getSimpleName());
-            builder.setTicker("迎宾系统远端服务正在运行")
+            builder.setTicker("远端服务正在运行")
                     .setContentIntent(contentIntent)
-                    .setContentTitle("迎宾系统远端服务正在运行")
+                    .setContentTitle("远端服务正在运行")
                     .setAutoCancel(true)
-                    .setContentText("迎宾系统远端服务正在运行")
+                    .setContentText("远端服务正在运行")
                     .setWhen(System.currentTimeMillis());
 
             //把service设置为前台运行，避免手机系统自动杀掉改服务。
@@ -71,13 +71,13 @@ public class RemoteService extends Service {
         } else {
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             NotificationChannel mChannel = null;
-            mChannel = new NotificationChannel(CHANNEL_ID_STRING, "本地服务", NotificationManager.IMPORTANCE_HIGH);
+            mChannel = new NotificationChannel(CHANNEL_ID_STRING, "远端服务", NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(mChannel);
             Notification notification = new Notification.Builder(getApplicationContext(), CHANNEL_ID_STRING)
-                    .setTicker("迎宾系统本地服务正在运行")
-                    .setContentTitle("迎宾系统本地服务正在运行")
+                    .setTicker("远端服务正在运行")
+                    .setContentTitle("远端服务正在运行")
                     .setAutoCancel(true)
-                    .setContentText("哈哈")
+//                    .setContentText("哈哈")
                     .build();
             startForeground(NOTIFICATION_ID, notification);
         }

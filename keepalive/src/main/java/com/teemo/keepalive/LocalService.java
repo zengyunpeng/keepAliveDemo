@@ -74,9 +74,9 @@ public class LocalService extends Service {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
             PendingIntent contentIntent = PendingIntent.getService(this, 0, intent, 0);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID_STRING);
-            builder.setTicker("迎宾系统本地服务正在运行")
+            builder.setTicker("本地服务正在运行")
                     .setContentIntent(contentIntent)
-                    .setContentTitle("迎宾系统本地服务正在运行")
+                    .setContentTitle("本地服务正在运行")
                     .setAutoCancel(true)
                     .setContentText("哈哈")
                     .setWhen(System.currentTimeMillis());
@@ -88,8 +88,8 @@ public class LocalService extends Service {
             mChannel = new NotificationChannel(CHANNEL_ID_STRING, "本地服务", NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(mChannel);
             Notification notification = new Notification.Builder(getApplicationContext(), CHANNEL_ID_STRING)
-                    .setTicker("迎宾系统本地服务正在运行")
-                    .setContentTitle("迎宾系统本地服务正在运行")
+                    .setTicker("本地服务正在运行")
+                    .setContentTitle("本地服务正在运行")
                     .setAutoCancel(true)
 //                    .setContentText("哈哈")
                     .build();
